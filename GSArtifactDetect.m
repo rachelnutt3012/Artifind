@@ -2,8 +2,6 @@ function [EEG, onsets, trigger_type] = GSArtifactDetect(EEG, num_volumes, num_sl
 
 %% Detect the onsets of the GS artefact from the EEG data 
 % The onsets can be each slice or each volume, depending on the nature of the artefact as it appears in the EEG.
-% As an example, the final block of code (lines 72:end) can be used to correct for the GS
-% artefact using the found onsets via the fmrib toolbox (requires installation)
 % Input 1: EEG data structure
 % Input 2: number of volumes
 % Input 3: number of slices per volume
