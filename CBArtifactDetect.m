@@ -1,8 +1,6 @@
 function [EEG, qrs] = CBArtifactDetect(EEG, ECGchan, seglength)
 
 %% Detect the onsets of the CB artefact from the EEG data 
-% As an example, the final block of code (lines 72:end) can be used to
-% correct for the CB artefact using the found onsets via the fmrib toolbox (requires installation)
 % Input 1: EEG data structure
 % Input 2: ECG channel number (if present in the data (albeit unuseable), else [])
 % Input 3: Segment length for detecting the CB artefact peaks. This is a
