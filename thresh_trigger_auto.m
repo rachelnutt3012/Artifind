@@ -14,10 +14,10 @@ for trigger = [0 1] %first look for volume artifact peaks - if this is unsuccess
     
     if trigger == 0
         correct_artifact_length = vol_artifact_length;
-        correct_artifact_num = num_vols;
+        correct_artifact_num = num_vols + num_dummy;
     else
         correct_artifact_length = vol_artifact_length/num_slices;
-        correct_artifact_num = num_vols * num_slices;
+        correct_artifact_num = num_vols * num_slices + num_dummy * num_slices;
     end
     
     while mode(diff(spikes)) ~= correct_artifact_length || ~any(length(spikes) == correct_artifact_num-7: correct_artifact_num+7)
@@ -61,9 +61,10 @@ for trigger = [0 1] %first look for volume artifact peaks - if this is unsuccess
                 close(figure(n+1))
                 
                 if decider == 1
-                    chosen_electrode = electrode;
-                    
+                    chosen_electrode = electrode;      
                     break;
+                else
+                    spikes = [];
                 end
                 
             end
