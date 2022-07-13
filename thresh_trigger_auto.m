@@ -72,7 +72,7 @@ for trigger = [0 1] %first look for volume artifact peaks - if this is unsuccess
         
         if rep >= 30 %if our threshold is now less than 5000 below the median max across all data, then the search has failed and should exit the loop, try to find volume triggers, and if all fails, admit defeat and go old-school manual
             if trigger == 1
-                manual_switcher = input('Could  not find artifact peaks automatically. Enter 1 to continue with manual artifact detection: ');
+                manual_switcher = input('Could not find artifact peaks automatically. Enter 1 to continue with manual artifact detection: ');
             else
                 disp('Could not identify volumewise artifact peaks. Switching to slice artifact peaks')
             end
@@ -83,7 +83,7 @@ for trigger = [0 1] %first look for volume artifact peaks - if this is unsuccess
         end
     end
     
-    if mode(diff(spikes)) == correct_artifact_length && any(length(spikes) == correct_artifact_num-7: correct_artifact_num+7)
+    if mode(diff(spikes)) == correct_artifact_length && any(length(spikes) == correct_artifact_num-7: correct_artifact_num+7) || manual_switcher == 1
         break;
     end
     
